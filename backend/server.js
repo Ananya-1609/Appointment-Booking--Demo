@@ -8,7 +8,11 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 
 // Core middleware
-app.use(cors());
+app.use(cors({
+    origin: process.env.FRONTEND_URL || "https://appointment-booking-demo.vercel.app",
+    methods: ["GET", "POST", "DELETE"],
+    allowedHeaders: ["Content-Type"]
+}));
 app.use(express.json());
 
 // Health check
