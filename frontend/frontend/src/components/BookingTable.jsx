@@ -2,7 +2,7 @@ const BookingTable = ({ bookings, onRefresh }) => {
     const cancelBooking = async (id) => {
         if (!window.confirm("Are you sure you want to cancel this appointment?")) return;
         try {
-            const res = await fetch(`http://localhost:5000/api/bookings/${id}`, {
+            const res = await fetch(`${import.meta.env.VITE_API_URL || "https://appointment-booking-demo.onrender.com"}/api/bookings/${id}`, {
                 method: "DELETE",
             });
 

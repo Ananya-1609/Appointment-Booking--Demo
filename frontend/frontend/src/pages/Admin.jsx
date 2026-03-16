@@ -9,7 +9,7 @@ const Admin = () => {
     const fetchBookings = async () => {
         setLoading(true);
         try {
-            const res = await fetch("http://localhost:5000/api/bookings");
+            const res = await fetch(`${import.meta.env.VITE_API_URL || "https://appointment-booking-demo.onrender.com"}/api/bookings`);
             const data = await res.json();
             setBookings(data.data || []);
         } catch {
